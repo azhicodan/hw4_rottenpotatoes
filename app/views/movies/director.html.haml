@@ -1,4 +1,4 @@
--# in app/views/movies/show.html.haml
+
 
 %h2 Details about #{@movie.title}
 
@@ -19,3 +19,9 @@
 = link_to 'Find Movies With Same Director' , director_path(:id=>@movie.id) #{}"#{@movie.id}/director"
 %br
 = link_to 'Back to movie list', movies_path
+%br
+%h3 Movies from #{@movie.director}
+%ul#dMoviesWithSameDirector:
+- @director_movies.each do |movie|
+  %li
+    = movie.title
